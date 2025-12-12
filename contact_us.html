@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Indo Group</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-white text-gray-900">
+    <nav class="bg-teal-600 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-yellow-300 hover:text-yellow-200 transition">Beranda</a>
+                <a href="biodata.html" class="text-yellow-300 hover:text-yellow-200 transition">Biodata</a>
+                <a href="contact_us.html" class="text-yellow-300 hover:text-yellow-200 transition">Kontak</a>
+                <a href="posts.html" class="text-yellow-300 hover:text-yellow-200 transition">Blog</a>
+                <a href="freepage.html" class="text-yellow-300 hover:text-yellow-200 transition">Galeri</a>
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">Hubungi Kami</a>
+            </div>
+            <button class="md:hidden text-yellow-400 text-2xl" id="mobileMenuBtn">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- Add mobile navigation overlay menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-teal-600 z-50 flex flex-col md:hidden">
+        <div class="flex justify-between items-center px-4 py-4 border-b border-teal-500">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <button id="closeMobileMenu" class="text-yellow-400 text-2xl font-bold">
+                ✕
+            </button>
+        </div>
+
+        <!-- Mobile menu links -->
+        <div class="flex flex-col p-6 space-y-8">
+            <a href="index.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Beranda</a>
+            <a href="biodata.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Biodata</a>
+            <a href="contact_us.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Kontak</a>
+            <a href="posts.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Blog</a>
+            <a href="freepage.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Galeri</a>
+            <div class="flex justify-center">
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold mb-2 text-center text-gray-900">Formulir Pendaftaran Siswa</h1>
+            <p class="text-center text-gray-600 mb-12">Silahkan isi semua kolom dengan benar</p>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition duration-300">
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lengkap *</label>
+                        <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition" placeholder="Masukkan nama lengkap Anda">
+                        <p class="text-red-500 text-sm mt-1 hidden" id="fullNameError"></p>
+                    </div>
+
+                    <!-- Student ID -->
+                    <div>
+                        <label for="nim" class="block text-sm font-semibold text-gray-700 mb-2">NIM (Student ID) *</label>
+                        <input type="text" id="nim" name="nim" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition" placeholder="Contoh: 12345678">
+                        <p class="text-red-500 text-sm mt-1 hidden" id="nimError"></p>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Alamat Email *</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition" placeholder="nama.anda@email.com">
+                        <p class="text-red-500 text-sm mt-1 hidden" id="emailError"></p>
+                    </div>
+
+                    <!-- Faculty -->
+                    <div>
+                        <label for="faculty" class="block text-sm font-semibold text-gray-700 mb-2">Fakultas/Program Studi *</label>
+                        <select id="faculty" name="faculty" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition">
+                            <option value="">-- Pilih Fakultas --</option>
+                            <option value="FTI">Fakultas Teknologi dan Informasi (FTI)</option>
+                            <option value="FEKON">Fakultas Ekonomi (FEKON)</option>
+                            <option value="FMIpa">Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)</option>
+                            <option value="FIK">Fakultas Ilmu Keperawatan (FIK) </option>
+                            <option value="FFil">Fakultas Filsafat (FFil)</option>
+                            <option value="FKIP">Fakultas Keguruan dan Ilmu Pendidikan (FKIP)</option>
+                        </select>
+                        <p class="text-red-500 text-sm mt-1 hidden" id="facultyError"></p>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div>
+                        <label for="dob" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Lahir *</label>
+                        <input type="date" id="dob" name="dob" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition">
+                        <p class="text-red-500 text-sm mt-1 hidden" id="dobError"></p>
+                    </div>
+
+                    <!-- Gender -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Jenis Kelamin *</label>
+                        <div class="flex items-center space-x-6">
+                            <label class="flex items-center cursor-pointer hover:text-teal-600 transition">
+                                <input type="radio" name="gender" value="male" class="w-4 h-4 text-teal-600">
+                                <span class="ml-2 text-gray-700">Laki-Laki</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer hover:text-teal-600 transition">
+                                <input type="radio" name="gender" value="female" class="w-4 h-4 text-teal-600">
+                                <span class="ml-2 text-gray-700">Perempuan</span>
+                            </label>
+                        </div>
+                        <p class="text-red-500 text-sm mt-1 hidden" id="genderError"></p>
+                    </div>
+
+                    <!-- Address -->
+                    <div>
+                        <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Alamat *</label>
+                        <textarea id="address" name="address" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition" placeholder="Masukkan alamat lengkap Anda"></textarea>
+                        <p class="text-red-500 text-sm mt-1 hidden" id="addressError"></p>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Nomor Telepon *</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition" placeholder="Contoh: 08123456789">
+                        <p class="text-red-500 text-sm mt-1 hidden" id="phoneError"></p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex gap-4">
+                        <button type="submit" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Kirim
+                        </button>
+                        <button type="reset" class="flex-1 bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Hapus
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="mt-8 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg hidden">
+                    <p class="font-bold">✓ Pendaftaran Berhasil!</p>
+                    <p>Terima kasih telah mengirimkan informasi Anda. Kami akan segera menghubungi Anda.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden text-white">
+
+        <div class="absolute inset-0 bg-[#5667A0]"></div>
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <polygon fill="#8E9652" points="0,60 100,20 100,100 0,100" />
+            </svg>
+        </div>
+
+        <!-- Main footer content -->
+        <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16 py-16">
+
+            <!-- Column 1 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Indogroup Holding Company</h3>
+                <p class="text-sm leading-relaxed">
+                    Indogroup adalah induk dari beberapa entitas bisnis yang kompeten dalam bidangnya masing-masing dan berkolaborasi untuk kinerja terbaik.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Head Office</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="leading-relaxed">
+                        <span class="font-semibold">Address:</span> Gedung Grand Slipi Tower, Lantai 9 Unit O,
+                        CHR Office, Jalan Letjend. S. Parman Kav. 22–24,
+                        Palmerah, Jakarta Barat, DKI Jakarta, 11480
+                    </li>
+                    <li><span class="font-semibold">Phone:</span> 021-29021873</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Business Inquiry</h3>
+                <p class="text-sm mb-6">
+                    Untuk kerjasama bisnis dengan group kami, silakan hubungi
+                </p>
+
+                <button class="bg-lime-500 hover:bg-lime-600 text-white px-6 py-2 rounded font-semibold text-sm mb-6 transition">
+                    Contact Us
+                </button>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="hover:text-gray-300 transition">f</a>
+                    <a href="#" class="hover:text-gray-300 transition">𝕏</a>
+                    <a href="#" class="hover:text-gray-300 transition">in</a>
+                    <a href="#" class="hover:text-gray-300 transition">G+</a>
+                </div>
+
+                <!-- External Links -->
+                <h3 class="text-lg font-bold text-lime-300 mb-3">External Links</h3>
+                <ul class="space-y-3 text-sm">
+
+                    <!-- FTI UNAI -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/fti.png" alt="FTI UNAI" class="w-6 h-6 object-contain">
+                        <a href="https://fti.unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            FTI UNAI
+                        </a>
+                    </li>
+
+                    <!-- UNAI Website -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/unai.png" alt="UNAI Website" class="w-6 h-6 object-contain">
+                        <a href="https://unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            UNAI Website
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-[#1B2635] text-white text-center py-4 text-xs md:text-sm relative z-10">
+                Copyright © 2025 | Indogroup Holding Company
+            </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        const form = document.getElementById('registrationForm');
+
+        const validateEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        };
+
+        const validatePhone = (phone) => {
+            const phoneRegex = /^\d{10,}$/;
+            return phoneRegex.test(phone.replace(/\D/g, ''));
+        };
+
+        const clearErrors = () => {
+            document.querySelectorAll('[id$="Error"]').forEach(el => {
+                el.classList.add('hidden');
+                el.textContent = '';
+            });
+        };
+
+        const showError = (fieldName, message) => {
+            const errorElement = document.getElementById(`${fieldName}Error`);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.remove('hidden');
+            }
+        };
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            const formData = new FormData(form);
+            let isValid = true;
+
+            const fullName = formData.get('fullName').trim();
+            if (!fullName) {
+                showError('fullName', 'Nama lengkap diperlukan');
+                isValid = false;
+            }
+
+            const nim = formData.get('nim').trim();
+            if (!nim) {
+                showError('nim', 'NIM diperlukan');
+                isValid = false;
+            }
+
+            const email = formData.get('email').trim();
+            if (!email) {
+                showError('email', 'Alamat email diperlukan');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('email', 'Silahkan masukkan alamat email yang valid');
+                isValid = false;
+            }
+
+            const faculty = formData.get('faculty');
+            if (!faculty) {
+                showError('faculty', 'Silahkan pilih fakultas');
+                isValid = false;
+            }
+
+            const dob = formData.get('dob');
+            if (!dob) {
+                showError('dob', 'Tanggal lahir diperlukan');
+                isValid = false;
+            }
+
+            const gender = formData.get('gender');
+            if (!gender) {
+                showError('gender', 'Silahkan pilih jenis kelamin');
+                isValid = false;
+            }
+
+            const phone = formData.get('phone').trim();
+            if (!phone) {
+                showError('phone', 'Nomor telepon diperlukan');
+                isValid = false;
+            } else if (!validatePhone(phone)) {
+                showError('phone', 'Nomor telepon harus minimal 10 angka');
+                isValid = false;
+            }
+
+            const address = formData.get('address').trim();
+            if (!address) {
+                showError('address', 'Alamat diperlukan');
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById('successMessage').classList.remove('hidden');
+                form.reset();
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.add('hidden');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+
+</html>

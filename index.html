@@ -1,11 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jordan: Hai, Nama ku Jordan</title>
-  </head>
-  <body>
-    <h1>Sebastian Jordan Girsang</h1>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indo Group - Holding Company</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-teal-600 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-yellow-300 hover:text-yellow-200 transition">Beranda</a>
+                <a href="biodata.html" class="text-yellow-300 hover:text-yellow-200 transition">Biodata</a>
+                <a href="contact_us.html" class="text-yellow-300 hover:text-yellow-200 transition">Kontak</a>
+                <a href="posts.html" class="text-yellow-300 hover:text-yellow-200 transition">Blog</a>
+                <a href="freepage.html" class="text-yellow-300 hover:text-yellow-200 transition">Galeri</a>
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">Hubungi Kami</a>
+            </div>
+            <button class="md:hidden text-yellow-400 text-2xl" id="mobileMenuBtn">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile navigation overlay menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-teal-600 z-50 flex flex-col md:hidden">
+        <!-- Close button -->
+        <div class="flex justify-between items-center px-4 py-4 border-b border-teal-500">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <button id="closeMobileMenu" class="text-yellow-400 text-2xl font-bold">
+                ✕
+            </button>
+        </div>
+
+        <!-- Mobile menu links -->
+        <div class="flex flex-col p-6 space-y-8">
+            <a href="index.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Beranda</a>
+            <a href="biodata.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Biodata</a>
+            <a href="contact_us.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Kontak</a>
+            <a href="posts.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Blog</a>
+            <a href="freepage.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Galeri</a>
+            <div class="flex justify-center">
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center min-h-80 md:h-96 relative" style="background-image: url('images/Businessman\ holding\ pen\ and\ writing\ on\ papers\ _\ Premium\ Photo.jpg');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative h-full flex flex-col justify-center px-4 md:px-16">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">Indo Group</h1>
+            <h2 class="text-xl md:text-3xl font-bold mb-4">
+                <span class="text-green-400">Investor</span>
+                <span class="text-white">And</span>
+                <span class="text-green-400">Business Holder.</span>
+            </h2>
+            <p class="text-white max-w-2xl text-sm md:text-base leading-relaxed">
+                Mengembangkan berbagai unit bisnis yang bersinergis untuk mencapai kemajuan yang berkelanjutan dan berdampak positif bagi kemajuan ekonomi masyarakat
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-12 md:py-16 px-4 md:px-16 max-w-7xl mx-auto">
+        <div class="border-l-4 border-green-600 pl-4 mb-8">
+            <p class="text-green-600 font-semibold text-sm">TENTANG KAMI</p>
+        </div>
+        <p class="text-gray-700 text-justify leading-relaxed max-w-4xl text-sm md:text-base">
+            Indo Group adalah perusahaan yang bergerak di bidang investasi dan pengembangan berbagai model bisnis di Indonesia dari mulai skala kecil, menengah, dan atas, untuk mencapai performa terbaik, sehingga menjadi model bisnis yang menguntungkan, stabil, berkelanjutan dan berdampak kebaikan bagi masyarakat sekitar.
+        </p>
+    </section>
+
+    <div class="border-t border-gray-300 max-w-7xl mx-auto my-8"></div>
+
+    <!-- Vision & Mission Section -->
+    <section class="py-12 md:py-16 px-4 md:px-16 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-green-700 mb-6">Visi Kami</h2>
+                <p class="text-gray-700 leading-relaxed mb-6 text-sm md:text-base">
+                    Menjadi perusahaan holding yang bersinergis, berkolaborasi, dan mampu bersaing baik secara nasional maupun internasional.
+                </p>
+                <img src="images/businessman-working-office-man-is-talking-phone-guy-business-suit-1.png" alt="Vision" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-green-700 mb-6">Misi Kami</h2>
+                <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                    Memberikan layanan bisnis di berbagai sektor, yang melibatkan banyak UKM dan masyarakat sekitar, sehingga mampu menitpakan dampak kebaikan yang luas bagi masyarakat Indonesia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Areas to 6 sections -->
+    <section class="bg-green-50 py-12 md:py-16 px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-4">Area Bisnis Kami</h2>
+            <div class="border-b-4 border-indigo-950 w-16 mx-auto mb-12"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/Financial.png" alt="IT Solutions">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">IT Solutions</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Pengembangan software, AI Programming, Hardware supplier, Digital Media Content</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/investment.png" alt="Jasa Pembayaran">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">Jasa Pembayaran</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Penyedia Jasa pembayaran & remitensi yang memiliki izin dari Bank Indonesia sejak 2020</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/Tax.png" alt="Pariwisata">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">Pariwisata</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Lingkung Gunung Camp of Adventure dan Elji resort dan coffee shop di wilayah Bogor</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/Retirement.png" alt="Export - Import Sandang">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">Export - Import Sandang</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Pedagang besar yang terpercaya untuk komoditas bahan makanan dan bahan pakaian</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/behavioral.png" alt="Food & Fruit Trading">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">Food & Fruit Trading</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Pedagang besar yang menyediakan berbagai macam buah, daging, pertanian & perikanan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition duration-300 text-center">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="images/Insurance.png" alt="CSR">
+                        </div>
+                        <h3 class="text-base md:text-lg font-semibold text-green-700 mb-3">CSR</h3>
+                        <p class="text-gray-600 text-l md:text-l leading-relaxed">Memberikan dampak postif kepada lingkungan dan masyarakat sekitar melalui program CSR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Members section -->
+    <section class="py-12 md:py-16 px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <div class="border-l-4 border-blue-900 pl-4">
+                    <p class="text-green-700 font-bold text-sm md:text-base">OUR INVESTMENTS</p>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-green-700">Member Of Indogroup</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">PT. Lingkung Gunung Sejahtera</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Resort, resto dan camping ground</p>
+                </div>
+
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">PT. Exim Indo International</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Export-Import Sandang & Pangan</p>
+                </div>
+
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">PT. Digitalindo Info Teknik</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Software, Information Technology & Artificial Intelligent Specialis</p>
+                </div>
+
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">PT. Fruti Indo Sejahtera</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Ekspor dan Impor Buah-buahan</p>
+                </div>
+
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">PT. Asia Pelangi Remitens</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Penyedia jasa pembayaran dan remitansi</p>
+                </div>
+
+                <div class="border-2 border-green-600 rounded-lg p-6 md:p-8 text-center hover:shadow-lg transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-green-700 mb-3">Paramitra Foundation</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">Kegiatan CSR dari Indogroup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog section -->
+    <section class="bg-gray-50 py-12 md:py-16 px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-blue-900 font-bold text-2xl md:text-4xl mb-2">BLOG POST</p>
+            <h2 class="text-center text-3xl md:text-5xl font-bold text-blue-900 mb-12">Berita & Blog Kami</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-8">
+                <!-- Blog Post 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+                    <img src="images/jorge-vasconez-eojSqfK8Jwk-unsplash-1-1-150x150.png" alt="Angel Investor" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-2">How Will You Find An Angel Investor For Your Business? And Why?</h3>
+                        <p class="text-gray-500 text-xs md:text-sm mb-4">December 17, 2024</p>
+                        <p class="text-gray-600 text-xs md:text-sm mb-4">This is my personal blog. It is focused on building...</p>
+                        <a href="#" class="text-teal-600 text-sm md:text-base font-semibold hover:text-teal-700">Selengkapnya ------</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+                    <img src="images/pexels-photo-635705-635705-150x150.jpg" alt="Blog" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-2">Ini Post 1</h3>
+                        <p class="text-gray-500 text-xs md:text-sm mb-4">February 2, 2025</p>
+                        <p class="text-gray-600 text-xs md:text-sm mb-4">Hello, I am Tony Forleo. A 30-Year-Old Award-Winning Angel Investor...</p>
+                        <a href="#" class="text-teal-600 text-sm md:text-base font-semibold hover:text-teal-700">Selengkapnya ------</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+                    <img src="images/pexels-photo-18848578-18848578-150x150.jpg" alt="Business" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-2">Blog Post Kedua</h3>
+                        <p class="text-gray-500 text-xs md:text-sm mb-4">February 2, 2025</p>
+                        <p class="text-gray-600 text-xs md:text-sm mb-4">Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore...</p>
+                        <a href="#" class="text-teal-600 text-sm md:text-base font-semibold hover:text-teal-700">Selengkapnya ------</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+                    <img src="images/pexels-photo-28101466-28101466-150x150.jpg" alt="Business" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-2">Blog Post Ketiga</h3>
+                        <p class="text-gray-500 text-xs md:text-sm mb-4">February 2, 2025</p>
+                        <p class="text-gray-600 text-xs md:text-sm mb-4">Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore...</p>
+                        <a href="#" class="text-teal-600 text-sm md:text-base font-semibold hover:text-teal-700">Selengkapnya ------</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center gap-2">
+                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">←</button>
+                <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 transition">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden text-white">
+
+        <div class="absolute inset-0 bg-[#5667A0]"></div>
+
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <polygon fill="#8E9652" points="0,60 100,20 100,100 0,100" />
+            </svg>
+        </div>
+
+        <!-- Main footer content -->
+        <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16 py-16">
+
+            <!-- Column 1 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Indogroup Holding Company</h3>
+                <p class="text-sm leading-relaxed">
+                    Indogroup adalah induk dari beberapa entitas bisnis yang kompeten dalam bidangnya masing-masing dan berkolaborasi untuk kinerja terbaik.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Head Office</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="leading-relaxed">
+                        <span class="font-semibold">Address:</span> Gedung Grand Slipi Tower, Lantai 9 Unit O,
+                        CHR Office, Jalan Letjend. S. Parman Kav. 22–24,
+                        Palmerah, Jakarta Barat, DKI Jakarta, 11480
+                    </li>
+                    <li><span class="font-semibold">Phone:</span> 021-29021873</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Business Inquiry</h3>
+                <p class="text-sm mb-6">
+                    Untuk kerjasama bisnis dengan group kami, silakan hubungi
+                </p>
+
+                <button class="bg-lime-500 hover:bg-lime-600 text-white px-6 py-2 rounded font-semibold text-sm mb-6 transition">
+                    Contact Us
+                </button>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="hover:text-gray-300 transition">f</a>
+                    <a href="#" class="hover:text-gray-300 transition">𝕏</a>
+                    <a href="#" class="hover:text-gray-300 transition">in</a>
+                    <a href="#" class="hover:text-gray-300 transition">G+</a>
+                </div>
+
+                <!-- External Links -->
+                <h3 class="text-lg font-bold text-lime-300 mb-3">External Links</h3>
+                <ul class="space-y-3 text-sm">
+
+                    <!-- FTI UNAI -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/fti.png" alt="FTI UNAI" class="w-6 h-6 object-contain">
+                        <a href="https://fti.unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            FTI UNAI
+                        </a>
+                    </li>
+
+                    <!-- UNAI Website -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/unai.png" alt="UNAI Website" class="w-6 h-6 object-contain">
+                        <a href="https://unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            UNAI Website
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-[#1B2635] text-white text-center py-4 text-xs md:text-sm relative z-10">
+                Copyright © 2025 | Indogroup Holding Company
+            </div>
+            <!-- Scroll to Top Button -->
+            <button id="scrollTopBtn" class="hidden fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center 
+           bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg 
+           transition-all duration-300">
+                <span class="text-2xl font-bold">⌃</span>
+            </button>
+
+    </footer>
+
+
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.remove("hidden");
+            } else {
+                scrollTopBtn.classList.add("hidden");
+            }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+
 </html>

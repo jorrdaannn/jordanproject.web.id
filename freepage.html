@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Indo Group</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .gallery-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900">
+    <nav class="bg-teal-600 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-yellow-300 hover:text-yellow-200 transition">Beranda</a>
+                <a href="biodata.html" class="text-yellow-300 hover:text-yellow-200 transition">Biodata</a>
+                <a href="contact_us.html" class="text-yellow-300 hover:text-yellow-200 transition">Kontak</a>
+                <a href="posts.html" class="text-yellow-300 hover:text-yellow-200 transition">Blog</a>
+                <a href="freepage.html" class="text-yellow-300 hover:text-yellow-200 transition">Galeri</a>
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">Hubungi Kami</a>
+            </div>
+            <button class="md:hidden text-yellow-400 text-2xl" id="mobileMenuBtn">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- Add mobile navigation overlay menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-teal-600 z-50 flex flex-col md:hidden">
+        <div class="flex justify-between items-center px-4 py-4 border-b border-teal-500">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <button id="closeMobileMenu" class="text-yellow-400 text-2xl font-bold">
+                ✕
+            </button>
+        </div>
+
+        <!-- Mobile menu links -->
+        <div class="flex flex-col p-6 space-y-8">
+            <a href="index.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Beranda</a>
+            <a href="biodata.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Biodata</a>
+            <a href="contact_us.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Kontak</a>
+            <a href="posts.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Blog</a>
+            <a href="freepage.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Galeri</a>
+            <div class="flex justify-center">
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold mb-4 text-center text-gray-900">Galeri Proyek</h1>
+            <p class="text-center text-gray-600 mb-12">Showcase dari proyek web development dan karya kreatif</p>
+
+            <!-- Gallery -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Gallery Item 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-full h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center gallery-image">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-2">🌐</div>
+                            <p class="font-semibold">Web Design</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Responsive Web Design</h3>
+                        <p class="text-gray-600">Design website modern dengan mobile-first menggunakan Tailwind CSS.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center gallery-image">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-2">⚙️</div>
+                            <p class="font-semibold">Interactive Forms</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Form Validation</h3>
+                        <p class="text-gray-600">Form fully functional dengan comprehensive JavaScript validation.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                    <div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center gallery-image">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-2">📊</div>
+                            <p class="font-semibold">Data Integration</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">API Integration</h3>
+                        <p class="text-gray-600">Implementasi Fetch API dengan real data dari external sources.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fitur -->
+            <section class="bg-gradient-to-r from-teal-50 to-green-50 p-8 md:p-12 rounded-lg mb-16 border border-teal-200 hover:shadow-lg transition duration-300">
+                <h2 class="text-3xl font-bold mb-4 text-teal-600">Fitur: Website Indo Group</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Website ini menampilkan Beranda, Biodata, Kontak, Blog, dan Galeri. Dibangun sepenuhnya dengan HTML, CSS (Tailwind), dan JavaScript, mendemonstrasikan modern web development practices.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-gray-700 hover:translate-x-2 transition duration-200">
+                                <span class="text-green-500 font-bold mr-2">✓</span> Fully Responsive Design
+                            </li>
+                            <li class="flex items-center text-gray-700 hover:translate-x-2 transition duration-200">
+                                <span class="text-green-500 font-bold mr-2">✓</span> Form Validation
+                            </li>
+                            <li class="flex items-center text-gray-700 hover:translate-x-2 transition duration-200">
+                                <span class="text-green-500 font-bold mr-2">✓</span> API Integration
+                            </li>
+                            <li class="flex items-center text-gray-700 hover:translate-x-2 transition duration-200">
+                                <span class="text-green-500 font-bold mr-2">✓</span> Mobile-First Approach
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <h3 class="text-lg font-bold mb-4 text-gray-900">Teknologi yang Digunakan</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-teal-100 p-3 rounded text-center hover:bg-teal-200 transition duration-200">
+                                <p class="font-semibold text-teal-600">HTML</p>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded text-center hover:bg-green-200 transition duration-200">
+                                <p class="font-semibold text-green-600">Tailwind CSS</p>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded text-center hover:bg-yellow-200 transition duration-200">
+                                <p class="font-semibold text-yellow-600">JavaScript</p>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded text-center hover:bg-blue-200 transition duration-200">
+                                <p class="font-semibold text-blue-600">Fetch API</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center text-gray-900">Keahlian yang Ditunjukkan</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center hover:translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-teal-200 transition duration-300">
+                            <span class="text-2xl">🎨</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">UI/UX Design</h3>
+                        <p class="text-sm text-gray-600">Interface yang clean</p>
+                    </div>
+                    <div class="text-center hover:translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-green-200 transition duration-300">
+                            <span class="text-2xl">💻</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Frontend Dev</h3>
+                        <p class="text-sm text-gray-600">HTML, Tailwind CSS, JavaScript</p>
+                    </div>
+                    <div class="text-center hover:translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-yellow-200 transition duration-300">
+                            <span class="text-2xl">📱</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Responsive</h3>
+                        <p class="text-sm text-gray-600">Responsive Website</p>
+                    </div>
+                    <div class="text-center hover:translate-y-2 transition duration-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-blue-200 transition duration-300">
+                            <span class="text-2xl">🔗</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Integration</h3>
+                        <p class="text-sm text-gray-600">APIs & Data</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden text-white">
+
+        <div class="absolute inset-0 bg-[#5667A0]"></div>
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <polygon fill="#8E9652" points="0,60 100,20 100,100 0,100" />
+            </svg>
+        </div>
+
+        <!-- Main footer content -->
+        <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16 py-16">
+
+            <!-- Column 1 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Indogroup Holding Company</h3>
+                <p class="text-sm leading-relaxed">
+                    Indogroup adalah induk dari beberapa entitas bisnis yang kompeten dalam bidangnya masing-masing dan berkolaborasi untuk kinerja terbaik.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Head Office</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="leading-relaxed">
+                        <span class="font-semibold">Address:</span> Gedung Grand Slipi Tower, Lantai 9 Unit O,
+                        CHR Office, Jalan Letjend. S. Parman Kav. 22–24,
+                        Palmerah, Jakarta Barat, DKI Jakarta, 11480
+                    </li>
+                    <li><span class="font-semibold">Phone:</span> 021-29021873</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Business Inquiry</h3>
+                <p class="text-sm mb-6">
+                    Untuk kerjasama bisnis dengan group kami, silakan hubungi
+                </p>
+
+                <button class="bg-lime-500 hover:bg-lime-600 text-white px-6 py-2 rounded font-semibold text-sm mb-6 transition">
+                    Contact Us
+                </button>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="hover:text-gray-300 transition">f</a>
+                    <a href="#" class="hover:text-gray-300 transition">𝕏</a>
+                    <a href="#" class="hover:text-gray-300 transition">in</a>
+                    <a href="#" class="hover:text-gray-300 transition">G+</a>
+                </div>
+
+                <!-- External Links -->
+                <h3 class="text-lg font-bold text-lime-300 mb-3">External Links</h3>
+                <ul class="space-y-3 text-sm">
+
+                    <!-- FTI UNAI -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/fti.png" alt="FTI UNAI" class="w-6 h-6 object-contain">
+                        <a href="https://fti.unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            FTI UNAI
+                        </a>
+                    </li>
+
+                    <!-- UNAI Website -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/unai.png" alt="UNAI Website" class="w-6 h-6 object-contain">
+                        <a href="https://unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            UNAI Website
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-[#1B2635] text-white text-center py-4 text-xs md:text-sm relative z-10">
+                Copyright © 2025 | Indogroup Holding Company
+            </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

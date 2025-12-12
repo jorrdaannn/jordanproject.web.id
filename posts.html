@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Indo Group</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900">
+    <nav class="bg-teal-600 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-yellow-300 hover:text-yellow-200 transition">Beranda</a>
+                <a href="biodata.html" class="text-yellow-300 hover:text-yellow-200 transition">Biodata</a>
+                <a href="contact_us.html" class="text-yellow-300 hover:text-yellow-200 transition">Kontak</a>
+                <a href="posts.html" class="text-yellow-300 hover:text-yellow-200 transition">Blog</a>
+                <a href="freepage.html" class="text-yellow-300 hover:text-yellow-200 transition">Galeri</a>
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">Hubungi Kami</a>
+            </div>
+            <button class="md:hidden text-yellow-400 text-2xl" id="mobileMenuBtn">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- Add mobile navigation overlay menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-teal-600 z-50 flex flex-col md:hidden">
+        <div class="flex justify-between items-center px-4 py-4 border-b border-teal-500">
+            <div class="text-2xl font-bold text-yellow-400">Indo Group</div>
+            <button id="closeMobileMenu" class="text-yellow-400 text-2xl font-bold">
+                ✕
+            </button>
+        </div>
+
+        <!-- Mobile menu links -->
+        <div class="flex flex-col p-6 space-y-8">
+            <a href="index.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Beranda</a>
+            <a href="biodata.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Biodata</a>
+            <a href="contact_us.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Kontak</a>
+            <a href="posts.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Blog</a>
+            <a href="freepage.html" class="text-yellow-300 text-lg font-semibold hover:text-yellow-200 transition">Galeri</a>
+            <div class="flex justify-center">
+                <a href="contact_us.html" class="bg-yellow-400 text-teal-600 px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-16 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <h1 class="text-4xl font-bold mb-2 text-center text-gray-900">Posts</h1>
+            <p class="text-center text-gray-600 mb-12">
+                Diambil dari JSONPlaceholder API berdasarkan NIM Anda
+            </p>
+
+            <!-- Input Form -->
+            <div class="max-w-md mx-auto mb-12 bg-white p-6 shadow-lg rounded-lg border border-gray-200">
+                <label class="block font-semibold mb-2 text-gray-800">
+                    Masukkan 2 Digit Terakhir NIM
+                </label>
+                <input id="nimInput" type="number" maxlength="2" placeholder="contoh: 33" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none mb-4">
+
+                <button onclick="fetchPost()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 rounded-lg transition">
+                    Fetch Post
+                </button>
+            </div>
+            <div id="loadingState" class="hidden grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-200 p-6 rounded-lg loading h-64"></div>
+                <div class="bg-gray-200 p-6 rounded-lg loading h-64"></div>
+            </div>
+
+            <!-- Posts Container -->
+            <div id="postsContainer" class="hidden grid md:grid-cols-2 gap-8"></div>
+
+            <!-- Error State -->
+            <div id="errorState" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mt-6">
+                <p id="errorMessage"></p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const loadingState = document.getElementById("loadingState");
+        const postsContainer = document.getElementById("postsContainer");
+        const errorState = document.getElementById("errorState");
+        const errorMessage = document.getElementById("errorMessage");
+
+        async function fetchPost() {
+            const nim = document.getElementById("nimInput").value.trim();
+
+            // Reset UI
+            postsContainer.innerHTML = "";
+            postsContainer.classList.add("hidden");
+            errorState.classList.add("hidden");
+
+            if (nim === "" || nim.length > 2 || isNaN(nim)) {
+                errorMessage.textContent = "Masukkan 2 digit angka yang valid.";
+                errorState.classList.remove("hidden");
+                return;
+            }
+
+            loadingState.classList.remove("hidden");
+
+            try {
+                const url = `https://jsonplaceholder.typicode.com/posts/${nim}`;
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data dari API.");
+                }
+
+                const post = await response.json();
+
+                // Hide loading
+                loadingState.classList.add("hidden");
+                postsContainer.classList.remove("hidden");
+
+                // Display card
+                postsContainer.innerHTML = `
+                <div class="relative p-[2px] rounded-xl bg-gradient-to-br from-teal-400 to-green-500 shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6">
+
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-teal-500 text-white flex items-center justify-center rounded-lg shadow-md">
+                                📄
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Post ID</p>
+                                <p class="text-lg font-bold text-gray-800">${post.id}</p>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-semibold text-gray-900 mb-3 leading-snug">
+                            ${post.title}
+                        </h2>
+
+                        <p class="text-gray-700 leading-relaxed">
+                            ${post.body}
+                        </p>
+
+                        <div class="mt-6 border-t pt-4 text-right">
+                            <span class="text-sm text-teal-600 font-semibold">JSONPlaceholder API</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            } catch (error) {
+                loadingState.classList.add("hidden");
+                errorState.classList.remove("hidden");
+                errorMessage.textContent = error.message;
+            }
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden text-white">
+
+        <div class="absolute inset-0 bg-[#5667A0]"></div>
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <polygon fill="#8E9652" points="0,60 100,20 100,100 0,100" />
+            </svg>
+        </div>
+
+        <!-- Main footer content -->
+        <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16 py-16">
+
+            <!-- Column 1 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Indogroup Holding Company</h3>
+                <p class="text-sm leading-relaxed">
+                    Indogroup adalah induk dari beberapa entitas bisnis yang kompeten dalam bidangnya masing-masing dan berkolaborasi untuk kinerja terbaik.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Head Office</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="leading-relaxed">
+                        <span class="font-semibold">Address:</span> Gedung Grand Slipi Tower, Lantai 9 Unit O,
+                        CHR Office, Jalan Letjend. S. Parman Kav. 22–24,
+                        Palmerah, Jakarta Barat, DKI Jakarta, 11480
+                    </li>
+                    <li><span class="font-semibold">Phone:</span> 021-29021873</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-4 text-lime-300">Business Inquiry</h3>
+                <p class="text-sm mb-6">
+                    Untuk kerjasama bisnis dengan group kami, silakan hubungi
+                </p>
+
+                <button class="bg-lime-500 hover:bg-lime-600 text-white px-6 py-2 rounded font-semibold text-sm mb-6 transition">
+                    Contact Us
+                </button>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="hover:text-gray-300 transition">f</a>
+                    <a href="#" class="hover:text-gray-300 transition">𝕏</a>
+                    <a href="#" class="hover:text-gray-300 transition">in</a>
+                    <a href="#" class="hover:text-gray-300 transition">G+</a>
+                </div>
+
+                <!-- External Links  -->
+                <h3 class="text-lg font-bold text-lime-300 mb-3">External Links</h3>
+                <ul class="space-y-3 text-sm">
+
+                    <!-- FTI UNAI -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/fti.png" alt="FTI UNAI" class="w-6 h-6 object-contain">
+                        <a href="https://fti.unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            FTI UNAI
+                        </a>
+                    </li>
+
+                    <!-- UNAI Website -->
+                    <li class="flex items-center gap-3">
+                        <img src="images/unai.png" alt="UNAI Website" class="w-6 h-6 object-contain">
+                        <a href="https://unai.edu" class="hover:text-gray-200 transition" target="_blank">
+                            UNAI Website
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-[#1B2635] text-white text-center py-4 text-xs md:text-sm relative z-10">
+                Copyright © 2025 | Indogroup Holding Company
+            </div>
+    </footer>
+            <script>
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+                const mobileMenu = document.getElementById('mobileMenu');
+
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                });
+
+                closeMobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+
+                // Close menu when a link is clicked
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+
+                // Close menu when clicking outside
+                mobileMenu.addEventListener('click', (e) => {
+                    if (e.target === mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            </script>
+
+</body>
+
+</html>
